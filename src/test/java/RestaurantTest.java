@@ -66,5 +66,28 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
 
+    @Test
+    public void when_no_items_selected_order_cost_will_be_zero(){
+
+        ArrayList<String> selectedItems = new ArrayList<String>();
+
+        int costOfOrder = restaurant.calculateOrderCost(selectedItems);
+
+        assertEquals(0,costOfOrder);
+    }
+
+    @Test
+    public void when_two_items_selected_with_cost_as_119_and_269_it_should_288(){
+
+        ArrayList<String> selectedItems = new ArrayList<String>();
+        selectedItems.add("Sweet corn soup");
+        selectedItems.add("Vegetable lasagne");
+
+        int costOfOrder = restaurant.calculateOrderCost(selectedItems);
+
+        assertEquals(388,costOfOrder);
+    }
+
+
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
