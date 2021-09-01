@@ -53,6 +53,14 @@ public class Restaurant {
         menu.remove(itemToBeRemoved);
     }
 
+    public int calculateOrderCost(ArrayList<String> selectedItems){
+        int costOfOrder = 0;
+        for(String selectedItem : selectedItems){
+            costOfOrder += this.findItemByName(selectedItem).getPrice();
+        }
+        return costOfOrder;
+    }
+
     public void displayDetails(){
         System.out.println("Restaurant:"+ name + "\n"
                 +"Location:"+ location + "\n"
